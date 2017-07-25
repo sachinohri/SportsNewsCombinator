@@ -1,5 +1,16 @@
+<nav class="navbar navbar-light" style="background-color:whitesmoke">
+  <a class="navbar-brand" href="#" style="padding: 10px">
+    <img src="assets/Logo.png" width="35" height="35" alt="">
+  </a>
 
+  <div class="container-fluid">
 
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Sports News Combinator</a>
+    </div>
+
+  </div>
+</nav>
 
 <div class='panel panel-primary'>
   <div class='panel-heading'>
@@ -22,24 +33,24 @@
           </tr>
         </thead>
         <tbody>
-         
-            <tr *ngFor='let article of latest_news.articles'>
-             <td>
-                <img [src]='article.urlToImage' [title]='article.title | uppercase' [style.width.px]='50' [style.margin.px]='5'>
-              </td>
-              <td colspan="3" ><a href="{{article.url}}" target="_blank">
+
+          <tr *ngFor='let article of latest_news.articles'>
+            <td>
+              <img [src]='article.urlToImage' [title]='article.title | uppercase' [style.width.px]='50' [style.margin.px]='5'>
+            </td>
+            <td colspan="3"><a href="{{article.url}}" target="_blank">
                             {{article.title}}
                             </a>
-                <p>
-                  {{article.description}}
-                </p>
-              </td>
-              <td>{{ article.author | uppercase }}</td>
-              <td>{{ article.publishedAt | timeAgo}}</td>
-             
-            </tr>
-                       
-          
+              <p>
+                {{article.description}}
+              </p>
+            </td>
+            <td>{{ article.author | uppercase }}</td>
+            <td>{{ article.publishedAt | timeAgo}}</td>
+
+          </tr>
+
+
 
 
         </tbody>
