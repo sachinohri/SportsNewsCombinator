@@ -1,0 +1,49 @@
+
+
+
+<div class='panel panel-primary'>
+  <div class='panel-heading'>
+    <h4>{{source | uppercase}}</h4>
+  </div>
+
+
+  <div class='panel-body'>
+
+    <div class='table-responsive'>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>
+            </th>
+            <th colspan="3">Article</th>
+            <th>Author</th>
+            <th>Published </th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+            <tr *ngFor='let article of latest_news.articles'>
+             <td>
+                <img [src]='article.urlToImage' [title]='article.title | uppercase' [style.width.px]='50' [style.margin.px]='5'>
+              </td>
+              <td colspan="3" ><a href="{{article.url}}" target="_blank">
+                            {{article.title}}
+                            </a>
+                <p>
+                  {{article.description}}
+                </p>
+              </td>
+              <td>{{ article.author | uppercase }}</td>
+              <td><published [publisheddate]= "article.publishedAt"></published></td>
+             
+            </tr>
+                       
+          
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
