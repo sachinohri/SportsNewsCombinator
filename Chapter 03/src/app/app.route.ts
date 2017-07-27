@@ -4,8 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { NewsComponent } from './dashboard/news/news.component';
 
 const feedRoutes = [{
- // path: '',
-  //component: NewsComponent
+  path: '',
+  component: NewsComponent
 }];
 
 const routes: Routes = [
