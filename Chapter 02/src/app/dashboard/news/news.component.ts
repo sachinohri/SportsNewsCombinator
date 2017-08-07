@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {News} from '../../../models/news';
 import {Article} from '../../../models/article';
 
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
-import { ActivatedRoute } from '@angular/router';
-
 
 @Component({
   selector: 'snc-news',
@@ -36,6 +32,8 @@ export class NewsComponent implements OnInit {
   }
   private seedArcticles():Article[]{
     let articles:Article[] = new Array();
+
+
     articles.push({
             author:"Lakisha Jackson",
             title:"Mike Williams denies report on season-ending surgery",
@@ -76,7 +74,7 @@ export class NewsComponent implements OnInit {
             urlToImage:"http://static.nfl.com/static/content/public/photo/2017/07/23/0ap3000000821326_thumbnail_200_150.jpg",
             publishedAt:"2017-07-23T23:49:00Z"
             });
-          
+         
     return articles;
   }
 

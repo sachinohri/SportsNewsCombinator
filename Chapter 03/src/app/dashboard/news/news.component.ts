@@ -53,7 +53,16 @@ export class NewsComponent implements OnInit {
   }
   private seedArcticles():Article[]{
     let articles:Article[] = new Array();
-    articles.push({
+        let art = new Article();
+    art.author ="ss";
+    art.description="dddsfdfsfd";
+    art.title = "sdsdsdsds";
+    art.url = "http://www.nfl.com/news/story/0ap3000000821316/article/mike-williams-denies-report-on-seasonending-surgery";
+    art.urlToImage = "http://static.nfl.com/static/content/public/photo/2017/07/22/0ap3000000821315_thumbnail_200_150.jpg";
+    art.publishedAt="2017-07-22T23:21:00Z";
+    
+    articles.push(art);
+  /*  articles.push({
             author:"Lakisha Jackson",
             title:"Mike Williams denies report on season-ending surgery",
             description:"Los Angeles Chargers first-round pick Mike Williams is denying reports that he might need season-ending back surgery. The rookie wideout addressed the rumors during Alshon Jeffery's camp on Saturday.",
@@ -93,7 +102,7 @@ export class NewsComponent implements OnInit {
             urlToImage:"http://static.nfl.com/static/content/public/photo/2017/07/23/0ap3000000821326_thumbnail_200_150.jpg",
             publishedAt:"2017-07-23T23:49:00Z"
             });
-          
+          */
     return articles;
   }
 
