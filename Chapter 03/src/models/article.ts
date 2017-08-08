@@ -1,4 +1,4 @@
-export class Article{
+export class Article implements IArticle{
     author:string;
     title:string;
     description: string;

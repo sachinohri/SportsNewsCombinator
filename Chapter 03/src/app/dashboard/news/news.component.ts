@@ -52,7 +52,7 @@ export class NewsComponent implements OnInit {
 
   }
   private seedArcticles():Article[]{
-    let articles:Article[] = new Array();
+    let articles:IArticle[] = new Array();
         let art = new Article();
     art.author ="ss";
     art.description="dddsfdfsfd";
