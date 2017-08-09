@@ -14,13 +14,13 @@ import {NewsapiService} from '../../service/newsapi.service';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  latest_news: News = new News();
+  source:string;
+  latest_news: News = new News("OK",this.source,"top");
   errorMessage = '';
   feedType: string;
   typeSub: Subscription;
   pageSub: Subscription;
-  source:string;
-
+  
   constructor(private _service:NewsapiService, private route: ActivatedRoute){}
   
 
@@ -42,7 +42,7 @@ export class NewsComponent implements OnInit {
          });
   }
   
-  private seedNewsData(): News{
+ /* private seedNewsData(): News{
     let news:News= new News();
     news.status = "ok";
     news.source="nfl";
@@ -95,7 +95,7 @@ export class NewsComponent implements OnInit {
             });
           
     return articles;
-  }
+  }*/
 
 }
 

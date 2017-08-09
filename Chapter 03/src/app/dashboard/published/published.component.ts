@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {IArticle} from '../../../models/IArticle';
 
 @Component({
   selector: 'published',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./published.component.css']
 })
 export class PublishedComponent implements OnInit {
-  @Input() publisheddate: string
+  @Input() article: IArticle;
   constructor() { }
 
   ngOnInit() {
