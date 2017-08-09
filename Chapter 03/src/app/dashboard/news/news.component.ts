@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {News} from '../../../models/news';
+import {News} from '../../../models/News';
 import {IArticle} from '../../../models/IArticle';
 import {Article} from '../../../models/article';
 
@@ -65,7 +65,7 @@ export class NewsComponent implements OnInit {
     tempArticle.publishedAt="2017-07-24T01:22:00Z";
     articles.push(tempArticle);
     
-    /*tempArticle = new Article();
+    tempArticle = new Article();
     tempArticle.author="Edward Lewis";
     tempArticle.title="Jerry Jones: Jaylon Smith's knee 'looks really good'";
     tempArticle.description="The Cowboys are going to be cautious with Jaylon Smith this summer, but per Jerry Jones, everything with the linebacker's knee \"looks really good.\" What else did we learn at Cowboys camp Sunday?";
@@ -73,7 +73,7 @@ export class NewsComponent implements OnInit {
     tempArticle.urlToImage="http://static.nfl.com/static/content/public/photo/2017/07/23/0ap3000000821326_thumbnail_200_150.jpg";
     tempArticle.publishedAt="2017-07-23T23:49:00Z";
     articles.push(tempArticle);
-  */
+  
     return articles;
   }
 
