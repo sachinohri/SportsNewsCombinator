@@ -23,7 +23,6 @@ export class NewsComponent implements OnInit {
   private seedNewsData(): News{
     let news:News= new News("Ok","NFL","top");
     news.Articles = this.seedArcticles();
-    console.log(news.Articles);
     return news;
 
   }

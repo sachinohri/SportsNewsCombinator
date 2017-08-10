@@ -18,7 +18,7 @@ import { PublishedComponent } from './dashboard/published/published.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+providers: [],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
