@@ -10,9 +10,14 @@ import {Article} from '../../../models/article';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  latest_news: News;
+  
   source:string = "nfl";
+    
+  getSource():string {
+    return this.source;
+  };
 
+  latest_news: News;
   constructor(){}
   
 
