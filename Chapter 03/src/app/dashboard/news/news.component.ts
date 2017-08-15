@@ -12,14 +12,9 @@ import {Article} from '../../../models/article';
 export class NewsComponent implements OnInit {
   
   source:string = "nfl";
-    
-  getSource():string {
-    return this.source;
-  };
-
   latest_news: News;
-  constructor(){}
   
+  constructor(){}
 
   ngOnInit() {
     this.latest_news = this.seedNewsData();
