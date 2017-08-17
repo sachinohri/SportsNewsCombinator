@@ -10,11 +10,11 @@ import {Article} from '../../../models/article';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  latest_news: News;
-  source:string = "nfl";
-
-  constructor(){}
   
+  source:string = "nfl";
+  latest_news: News;
+  
+  constructor(){}
 
   ngOnInit() {
     this.latest_news = this.seedNewsData();
