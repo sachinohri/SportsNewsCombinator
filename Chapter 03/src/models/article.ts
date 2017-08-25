@@ -8,6 +8,7 @@ export class Article implements IArticle{
     urlToImage:string;
     publishedAt:string;
 
+    // returns formatted date from the published at field
     getFormattedDate():string{
         let date = new Date(this.publishedAt);
         let year = date.getFullYear();
