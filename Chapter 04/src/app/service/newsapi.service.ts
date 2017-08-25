@@ -1,36 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import fetch from 'unfetch';
-import 'rxjs/add/operator/map';
+import { Http, Response } from '@angular/http';
 
-import {News} from '../../models/news';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
+
+import { News } from '../../models/news';
 
 @Injectable()
 export class NewsapiService {
-baseUrl: string;
-static apiKey:string="b07f98f6575d47d99fd6057668f21cb2";
-  constructor() {
+  baseUrl: string;
+
+  static apiKey: string = "b07f98f6575d47d99fd6057668f21cb2";
+  constructor(private _http: Http) {
     this.baseUrl = 'https://newsapi.org/v1/articles';
-   }
-   fetchFeed(source: string, sortBy: string): Observable<News> {
-    return lazyFetch(`${this.baseUrl}/?source=${source}&sortBy=${sortBy}&apiKey=${NewsapiService.apiKey}`);
+  }
+  public fetchNewsFeed(source: string, sortBy: string): Observable<News> {
+    return this._http.get(`${this.baseUrl}/?source=${source}&sortBy=${sortBy}&apiKey=${NewsapiService.apiKey}`)
+      .map((response: Response) => <News>response.json())
+      .do(data => console.log('All: ' + JSON.stringify(data)))
+      .catch(this.handleError);
+  }
+  private handleError(error: Response) {
+    console.error(error);
+    return Observable.throw(error.json().error || 'Server error');
   }
 }
-function lazyFetch(url, options?) {
-  return new Observable(fetchObserver => {
-    let cancelToken = false;
-    fetch(url, options)
-      .then(res => {
-        if (!cancelToken) {
-          return res.json()
-            .then(data => {
-              fetchObserver.next(data);
-              fetchObserver.complete();
-            });
-        }
-      }).catch(err => fetchObserver.error(err));
-    return () => {
-      cancelToken = true;
-    };
-  });
-}
+
