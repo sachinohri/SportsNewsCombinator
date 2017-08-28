@@ -3,7 +3,6 @@ import {News} from '../../../models/news';
 import {Article} from '../../../models/article';
 
 import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 
 import {NewsapiService} from '../../service/newsapi.service';
@@ -18,28 +17,23 @@ export class NewsComponent implements OnInit {
   latest_news: News = new News("OK",this.source,"top");
   errorMessage = '';
   feedType: string;
-  typeSub: Subscription;
-  pageSub: Subscription;
+
   
   constructor(private _service:NewsapiService, private route: ActivatedRoute){}
   
 
   ngOnInit() {
-       this.typeSub = this.route
-      .data
-      .subscribe(data => {
+      this.route.data.subscribe(data => {
         this.feedType = (data as any).feedType;
         this.source = (data as any).source;
       });
-    //this.latest_news = this.seedNewsData();
-    this.pageSub = this.route.params.subscribe(params => {
-      console.log(params['path']);
-       this._service.fetchFeed(this.feedType, "top")
+   
+       this._service.fetchNewsFeed(this.feedType)
         .subscribe(
           items => this.latest_news = items,
-          error => this.errorMessage = 'Could not load ' + this.feedType + ' stories.'
+          error => {this.errorMessage = 'Could not load ' + this.feedType + ' stories.'; console.log(this.errorMessage)}
         );
-         });
+      
   }
   
  /* private seedNewsData(): News{
