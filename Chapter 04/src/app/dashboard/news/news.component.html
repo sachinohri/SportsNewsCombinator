@@ -1,13 +1,10 @@
-
-
-
 <div class='panel panel-primary'>
   <div class='panel-heading'>
     <h4>{{source | uppercase}}</h4>
   </div>
+  <div>{{errorMessage}}</div>
 
-
-  <div class='panel-body'>
+  <div class='panel-body' *ngIf='errorMessage==""'>
 
     <div class='table-responsive'>
       <table class='table'>
@@ -22,26 +19,21 @@
           </tr>
         </thead>
         <tbody>
-         
-            <tr *ngFor='let article of latest_news.articles'>
-             <td>
-                <img [src]='article.urlToImage' [title]='article.title | uppercase' [style.width.px]='50' [style.margin.px]='5'>
-              </td>
-              <td colspan="3" ><a href="{{article.url}}" target="_blank">
+
+          <tr *ngFor='let article of latest_news.articles'>
+            <td>
+              <img [src]='article.urlToImage' [title]='article.title | uppercase' [style.width.px]='50' [style.margin.px]='5'>
+            </td>
+            <td colspan="3"><a href="{{article.url}}" target="_blank">
                             {{article.title}}
                             </a>
-                <p>
-                  {{article.description}}
-                </p>
-              </td>
-              <td>{{ article.author | uppercase }}</td>
-              <td><published [publisheddate]= "article.publishedAt"></published></td>
-             
-            </tr>
-                       
-          
-
-
+              <p>
+                {{article.description}}
+              </p>
+            </td>
+            <td>{{ article.author | uppercase }}</td>
+            <td>{{ article.getFormattedDate}}</td>
+          </tr>
         </tbody>
       </table>
     </div>
