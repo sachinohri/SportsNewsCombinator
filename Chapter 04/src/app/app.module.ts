@@ -1,24 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {TimeAgoPipe} from 'time-ago-pipe';
+import { HttpModule } from '@angular/http';
 
-import { routing } from './app.route';
+import { newsroutingmodule } from './app.route';
 
 import { AppComponent } from './app.component';
 import { NewsComponent } from './dashboard/news/news.component';
 import { HeaderComponent } from './Core/header/header.component';
-import { PublishedComponent } from './dashboard/published/published.component';
+import { FooterComponent } from './Core/footer/footer.component';
 import {NewsapiService} from './service/newsapi.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
-    HeaderComponent,TimeAgoPipe, PublishedComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-        routing,
+        newsroutingmodule,
+        HttpModule
 
   ],
   providers: [NewsapiService],
