@@ -16,8 +16,8 @@ export class NewsapiService {
   constructor(private _http: Http) {
     this.baseUrl = 'https://newsapi.org/v1/articles';
   }
-  public fetchNewsFeed(source: string, sortBy: string): Observable<News> {
-    return this._http.get(`${this.baseUrl}/?source=${source}&sortBy=${sortBy}&apiKey=${NewsapiService.apiKey}`)
+  public fetchNewsFeed(source: string): Observable<News> {
+    return this._http.get(`${this.baseUrl}/?source=${source}&sortBy=top&apiKey=${NewsapiService.apiKey}`)
       .map((response: Response) => <News>response.json())
       .do(data => console.log('All: ' + JSON.stringify(data)))
       .catch(this.handleError);

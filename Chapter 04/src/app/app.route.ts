@@ -25,10 +25,13 @@ const routes: Routes = [
     path: 'bbc',
     component: NewsComponent,
     data: {feedType: 'bbc-sport',source:'BBC Sports'}
+  },
+  {
+    path:'**',
+    redirectTo: 'nfl', pathMatch: 'full'
   }
   
 ];
 
 
-// - Updated Export
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+export const newsroutingmodule: ModuleWithProviders = RouterModule.forRoot(routes);
